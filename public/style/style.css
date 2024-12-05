@@ -1,0 +1,740 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    
+}
+body{
+    background-color: rgb(250, 250, 250);
+    
+}
+
+::-webkit-scrollbar {
+    width: 20px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background-color: #d6dee1;
+    border-radius: 20px;
+    border: 6px solid transparent;
+    background-clip: content-box;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: #a8bbbf;
+  }
+
+
+
+/* landing page start */
+
+.carousel {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+.carousel-images {
+    display: flex;
+    width: 100%;
+    transition: transform 0.5s ease-in-out;
+}
+
+.carousel-images img {
+    width: 100%;
+    display: block;
+}
+
+
+.arrow {
+    position: absolute;
+    top: 50%;
+    font-size: 25px;
+    transform: translateY(-50%);
+    background-color: transparent   ;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.arrow.left {
+    left: 10px;
+}
+
+.arrow.right {
+    right: 10px;
+}
+
+
+
+@keyframes slide {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-100%);
+    }
+  }
+  
+  .logos {
+    overflow: hidden;
+    background: white;
+    white-space: nowrap;
+    position: relative;
+  }
+  
+  
+  .logos:hover .logos-slide {
+    animation-play-state: paused;
+  }
+  
+  .logos-slide {
+    display: inline-block;
+    animation: 35s slide infinite linear;
+  }
+  
+  .logos-slide img {
+    padding: 20px 40px;
+  }
+  
+
+
+/* //// START OF DUPE CARDS */ 
+
+
+.fragrance-flex1{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: fit-content;
+    gap: 3vw;
+    margin-bottom:10px;
+  
+    
+}
+.fragrance-flex2{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: fit-content;
+    gap: 3vw;
+    margin-bottom:10px;
+}
+.fragrance-flex3{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: fit-content;
+    gap: 3vw;
+    margin-bottom:10px;
+}
+.fragrance-flex4{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: fit-content;
+    gap: 3vw;
+    margin-bottom:10px;
+}
+
+.flex-two{
+    flex-direction: column;
+    gap: 3vw;
+    margin-top: 10vw;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    gap: 7vw;
+    
+}
+.cls{
+    height: 200px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.flex-three{
+    margin-top: 10vw;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    height: fit-content;
+    gap: 10vw;
+}
+
+
+
+
+.index-Fragrance-carousel{
+    display: flex;
+    gap: 100px;
+    width: 90%;
+}
+.carousel-two{
+    display: flex;
+    gap: 20px;
+    width: 80%;
+    margin-block: 30px;
+}
+
+.card{
+    position: relative; 
+    border-radius: 10px;
+    z-index: 1;
+    width: 86%;
+    height: 400px;
+    margin-top: 10px;
+
+}
+.cardimg{
+    width: 100%;
+    border-radius: 20px;
+    position: relative;
+    height: 300px;
+    border-radius: 10px;
+    overflow: hidden;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    transition: 0.3s ease all;
+}
+.cardimg img{
+    width:100%;
+    display: none;
+}
+.card-info{
+    position: absolute;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    background-color: transparent;
+    justify-content: center;
+    gap: 8px;
+    overflow: hidden;
+    background-size: cover;
+    font-weight: 600;
+    transition: 0.2s ease all;
+    padding: 10px 0px;
+    top: 300px;
+    background-color: rgb(250, 250, 250);
+    
+}
+.card:hover .card-info{
+    transition: 0.2s ease all;
+    top: 240px;
+    
+
+}
+.card:hover .cardimg{
+    /* height: 260px; */
+    transition: 0.3s ease all;
+}
+.card:hover .addcartbnt{
+    display: block;
+    transition: 0.5s ease all;
+}
+
+.card-bnts{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.pricebefore{
+    color: grey;
+    padding-right: 5px;
+}
+
+
+
+
+.addcartbnt{
+   
+    width: 100%;
+    text-align: center;
+    border-radius: 90px;
+    border: none;
+    color: white;
+    height: fit-content;
+    display: none;
+    transition: 0.5s ease all;
+    cursor: pointer;
+    
+
+}
+.addcartbnt-span{
+   display: block;
+}
+.addcartbnt-span a{
+    display: block;
+    color: white;
+    width: 100%;
+    padding: 9px;
+    text-decoration: none;
+ }
+
+/* Facebook Button */
+.addcartbntface {
+    border-radius: 4px;
+    background-color: #3B5998;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.addcartbntface:hover {
+    background-color: #1f4aa8;
+    transform: scale(1.05); /* Slight enlargement on hover */
+}
+
+.addcartbntface i {
+    font-size: 20px;
+    transition: transform 0.1s ease; /* Smooth hover effect for icons */
+}
+
+.addcartbntface:hover i {
+    transform: rotate(10deg); /* Slight icon rotation on hover */
+}
+
+/* Instagram Button */
+.addcartbntinsta {
+    border-radius: 4px;
+    background: -moz-linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+    background: -webkit-linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.addcartbntinsta:hover {
+    background: -moz-linear-gradient(45deg, #e6683c 0%, #dc2743 25%, #cc2366 50%, #bc1888 75%, #9c0f6b 100%);
+    background: -webkit-linear-gradient(45deg, #e6683c 0%, #dc2743 25%, #cc2366 50%, #bc1888 75%, #9c0f6b 100%);
+    background: linear-gradient(45deg, #e6683c 0%, #dc2743 25%, #cc2366 50%, #bc1888 75%, #9c0f6b 100%);
+    transform: scale(1.05); /* Slight enlargement on hover */
+}
+
+.addcartbntinsta i {
+    font-size: 20px;
+    transition: transform 0.3s ease; /* Smooth hover effect for icons */
+}
+
+.addcartbntinsta:hover i {
+    transform: rotate(10deg); /* Slight icon rotation on hover */
+}
+
+
+.last-flex{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+.TF-Sale {
+    width: 100%;
+    position: relative;
+    height: 400px; /* Set the desired height */
+    overflow: hidden; /* Ensure cropped parts of the image don’t overflow the container */
+}
+
+.TF-Sale .responsive-image {
+    width: 100%;
+    height: 100%; /* Make the image match the container's height */
+    object-fit: cover; /* Ensures the image fills the container proportionally */
+}
+
+
+
+.tf-spam {
+    position: absolute;
+    left: 10%; /* Default horizontal placement */
+    top: 20%; /* Default vertical placement */
+    font-family: 'Playfair Display', serif; /* Modern, elegant font */
+    font-size: calc(2rem + 2.5vw); /* Scales dynamically */
+    color: transparent; /* For gradient text */
+    background: linear-gradient(90deg, #ffffff, #e5e5e5, #d4af37); /* Gradient */
+    background-clip: text;
+    -webkit-background-clip: text;
+    text-shadow: 4px 4px 6px rgba(0, 0, 0, 0.3); /* Subtle depth */
+    white-space: nowrap; /* Prevents line breaks */
+    font-weight: bold;
+    text-transform: uppercase; /* Sophisticated style */
+    letter-spacing: 2px; /* Improves readability */
+    animation: fadeInText 1.5s ease-in-out; /* Smooth appearance */
+    text-align: center; /* Ensures centering when necessary */
+}
+
+/* Adjustments for tablets */
+@media (max-width: 768px) {
+    .tf-spam {
+        left: 5%; /* Center closer to the middle */
+        top: 25%; /* Move down slightly */
+        font-size: calc(1.5rem + 2vw); /* Scale down font */
+        text-align: center; /* Center text alignment */
+    }
+}
+
+/* Adjustments for phones */
+@media (max-width: 480px) {
+    .tf-spam {
+        left: 50%; /* Center horizontally */
+        top: 50%; /* Center vertically */
+        transform: translate(-50%, -50%); /* Align exactly to center */
+        font-size: calc(1rem + 2vw); /* Smaller font size */
+        text-align: center; /* Align text to center */
+    }
+}
+
+/* Add animation for smoother entrance */
+@keyframes fadeInText {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+
+/* Media Query for Smaller Screens */
+
+
+/* Media Query for Smaller Screens */
+@media (max-width: 1050px) {
+    .TF-Sale {
+        height: 250px; /* Adjust the height for smaller screens */
+    }
+
+
+}
+
+
+/* landing page end */  
+
+@media (max-width: 1550px) {
+    .index-Fragrance-carousel{
+        gap: 20px;
+        transition: 0.5s ease all;
+    }
+
+
+}
+
+
+@media (max-width: 1150px) {
+
+    .flex-three{
+        gap: 0px;
+        flex-wrap: wrap;
+    }
+
+    .fragrance-flex , .fragrance-flex2{
+        gap: 0px;
+        flex-wrap: wrap;    
+    }
+ 
+    .index-Fragrance-carousel{
+        max-width: 70%;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        
+    }
+    .carousel-two{
+        width: 100%;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    /* .card{
+        width: 40%;
+    } */
+
+
+
+  
+    
+
+    
+
+}
+
+@media (max-width: 850px) {
+    .card {
+    width: 80%; 
+    margin-bottom: 15px;
+}
+
+
+
+}
+
+
+@media (max-width: 668px) {
+
+    .container, .fragrance-flex,.fragrance-flex1 {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .index-Fragrance-carousel{
+        display: flex;
+        gap: 60px;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        margin: auto;
+    }
+   
+    
+
+    .flex-three , .carousel-two{
+        flex-direction: column;
+        align-items: center;
+    }
+    .carousel-two{
+        width: 60%;
+    }
+.TF-hide{
+    display: block;
+}
+.TF-hide-none{
+    display: none;
+}
+/*    
+    .card {
+        width: 80%; 
+        margin-bottom: 15px;
+    } */
+
+
+    .form-group input, textarea {
+        width: 100%; 
+    }
+
+    .last-flex{
+        flex-direction: column;
+    }
+
+   
+    
+}
+
+
+
+.alert-popup {
+    display: none; 
+    position: fixed;
+    z-index: 10;
+    left: 50%;
+    top: 0;
+    transform: translateX(-50%);
+    background-color: #e4a52f; 
+    color: #ffffff; 
+    padding: 15px 25px;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    font-size: 16px;
+    text-align: center;
+    width: fit-content;
+    opacity: 0; 
+    transition: opacity 0.5s ease; 
+}
+
+.alert-popup.show {
+    opacity: 1; 
+}
+
+.alert-popup.hide {
+    opacity: 0; 
+}
+
+
+
+
+.slider {
+    margin-top:3%;
+    margin-bottom:3%;
+    width: 100%;
+    overflow: hidden; 
+   
+ 
+  }
+  
+  .slider-container {
+    display: flex;
+    animation: scroll 200s linear infinite; /* Continuous animation */
+  }
+  
+  .slider-item {
+ margin-left: 10px;
+  }
+  
+  .slider-item img {
+   
+    height: 40vh; /* Full viewport height */
+    display: block;
+    object-fit: cover; /* Ensure the image covers the slide area */
+  }
+  
+  /* Keyframe animation for infinite scrolling */
+  @keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-350%); /* Move by half of the slider's width */
+    }
+  }
+
+
+  @media (max-width: 800px) {
+    @keyframes scroll {
+        0% {
+            transform: translateX(0);
+        }
+        100% {
+            transform: translateX(-1000%); /* Adjusted translate value for smaller screens */
+        }
+    }
+}
+  
+
+
+.owl-nav{
+    width: 100%;
+    display: flex !important;
+ align-items: center;
+ gap: 35px;
+ justify-content: center;
+
+
+}
+
+.owl-nav span{
+    font-size: 40px;
+    font-weight: bolder;
+
+}
+ 
+/* .active{
+    width: 360px !important;
+} */
+.owl-stage-outer{
+    height: 400px;
+}
+
+.owl-item {
+    display: flex
+    ;
+        width: 372px;
+        margin-right: 10px;
+      
+        justify-content: center;
+}
+
+
+@media (max-width: 1400px) {
+    .card {
+    
+    width: 400px;      
+    
+    }
+}
+
+
+
+@media (max-width: 850px) {
+    .card {
+    
+        width: 320px;      
+        
+    }
+
+}
+
+@media (max-width: 600px) {
+    .cardimg {
+    
+        height: 240px;   
+        
+    }
+    .card-info {
+        top: 240px;
+
+    }
+    .card:hover .card-info{
+        transition: 0.2s ease all;
+        top: 180px;
+        
+    
+    }
+
+    .owl-stage-outer {
+        height: 350px;
+    }
+
+  
+  
+}
+
+
+
+.tf-spam1 {
+    position: absolute;
+    left: 10%; /* Default horizontal placement */
+    top: 40%; /* Align text at the bottom */
+    font-family: 'Playfair Display', serif; /* Modern, elegant font */
+    font-size: calc(2rem + 2.5vw); /* Scales dynamically */
+    color: transparent; /* For gradient text */
+    background: linear-gradient(90deg, #ffffff, #e5e5e5, #d4af37); /* Gradient */
+    background-clip: text;
+    -webkit-background-clip: text;
+    text-shadow: 4px 4px 6px rgba(0, 0, 0, 0.3); /* Subtle depth */
+    white-space: nowrap; /* Prevents line breaks */
+    font-weight: bold;
+    text-transform: uppercase; /* Sophisticated style */
+    letter-spacing: 2px; /* Improves readability */
+    animation: fadeInText 1.5s ease-in-out; /* Smooth appearance */
+    text-align: center; /* Ensures centering when necessary */
+}
+
+/* Adjustments for tablets */
+@media (max-width: 768px) {
+    .tf-spam1 {
+        left: 5%; /* Center closer to the middle */
+        top: 85%; /* Align near the bottom */
+        font-size: calc(1.5rem + 2vw); /* Scale down font */
+        text-align: center; /* Center text alignment */
+    }
+}
+
+/* Adjustments for phones */
+@media (max-width: 480px) {
+    .tf-spam1 {
+        left: 50%; /* Center horizontally */
+        top: 50%; /* Center vertically */
+        transform: translate(-50%, -50%); /* Align exactly to center */
+        font-size: calc(1rem + 2vw); /* Smaller font size */
+        text-align: center; /* Align text to center */
+    }
+}

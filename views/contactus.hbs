@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <title>Contact Section</title>
+    <link rel="stylesheet" href="style/contactus.css">
+    <link rel="stylesheet" href="style/header.css">
+    <link rel="stylesheet" href="style/footer.css">
+
+
+        <!-- Include EmailJS SDK -->
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3.2.0/dist/email.min.js"></script>
+    <script>
+      // Initialize EmailJS with your public key
+      (function(){
+        emailjs.init("OnDTC1aV7pb-wGBNH"); // Replace with your EmailJS public key
+      })();
+    </script>
+</head>
+<body>
+{{> header}}
+
+
+    <div class="container">
+        <div class="contact-info">
+            <h2>დაგვიკავშირდით</h2>
+            <p>+995-555-55-55-55</p>
+            <p>EffectLine@gmail.com</p>
+            <p>სამუშაო საათები</p>
+            <p>ორშაბათი-კვირა: 00:00-00:00</p>
+        </div>
+      <div class="contact-form">
+            <h2>მოგვწერეთ</h2>
+            <form id="contact-form">
+                <div class="form-group">
+                    <input type="text" id="firstName" placeholder="სახელი" required>
+                    <input type="text" id="lastName" placeholder="გვარი" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" id="email" placeholder="ელ-ფოსტა" required>
+                    <input type="text" id="phone" placeholder="ტელეფონი" required>
+                </div>
+                <textarea id="message" placeholder="მესიჯი" required></textarea>
+                <button type="submit">გაგზავნა</button>
+            </form>
+        </div>
+    </div>
+    <div id="feedback-message" style="display: none;"></div>
+    {{> footer}}
+
+     <script>
+     // Add event listener for form submission
+document.getElementById('contact-form').addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent default form submission
+    
+    // Collect form data
+    const formData = {
+        first_name: document.getElementById('firstName').value,
+        last_name: document.getElementById('lastName').value,
+        email: document.getElementById('email').value,
+        phone: document.getElementById('phone').value,
+        message: document.getElementById('message').value
+    };
+
+    console.log("Form submitted with data:", formData);
+
+    // Send the form data via EmailJS
+    emailjs.send("service_sg8jmwc", "template_sk1nz8f", formData, "OnDTC1aV7pb-wGBNH")
+    .then(function(response) {
+        console.log('SUCCESS!', response.status, response.text);
+        // Show success message with green background
+        showFeedbackMessage('Your message has been successfully sent!', 'green');
+        // Clear input fields after successful submission
+        clearForm();
+    }, function(error) {
+        console.error('FAILED...', error);
+        // Show error message with red background
+        showFeedbackMessage('Failed to send message. Please try again later.', 'red');
+        // Clear input fields after failed submission as well
+        clearForm();
+    });
+});
+
+// Function to display feedback message
+function showFeedbackMessage(message, color) {
+    const feedbackDiv = document.getElementById('feedback-message');
+    feedbackDiv.textContent = message;
+    feedbackDiv.style.backgroundColor = color;
+    feedbackDiv.style.color = 'white';
+    feedbackDiv.style.padding = '10px';
+    feedbackDiv.style.marginTop = '10px';
+    feedbackDiv.style.display = 'block'; // Make the message visible
+}
+
+// Function to clear input fields
+function clearForm() {
+    document.getElementById('firstName').value = '';
+    document.getElementById('lastName').value = '';
+    document.getElementById('email').value = '';
+    document.getElementById('phone').value = '';
+    document.getElementById('message').value = '';
+}
+
+    </script>
+</body>
+</html>
+
+
+

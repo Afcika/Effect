@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style/register.css">
+    <title>Library</title>
+</head>
+<body>
+    <div class="container">
+        <div class="left">
+            <h5>Create your account</h5>
+            <form action="/register" method="post">
+                <div class="left_input_div">
+                    <input type="text" class="form-control" id="name" name="name" placeholder="Name">
+                </div>
+                <div class="left_input_div">
+                    <input type="email" class="form-control" id="email" name="email" placeholder="E-mail">
+                </div>
+                <div class="left_input_div">
+                    <input type="password" class="form-control" id="password" name="password" placeholder="Password">
+                </div>
+                <div class="left_input_div">
+                    <input type="password" class="form-control" id="passwordConfirm" name="passwordConfirm" placeholder="Confirm Password">
+                </div>
+                <div class="div_bottom">
+                    <h6>Already have an account? <a href="/login">Sign in</a></h6>
+                </div>
+                <button type="submit" class="btn btn-primary">Continue</button>
+            </form>    
+        </div>
+        
+       
+    </div>
+
+    <!-- Display the message if it exists -->
+    {{#if message}}
+    <div class="alert alert-danger">
+        <h4>{{message}}</h4>
+    </div>
+    {{/if}}
+
+</body>
+</html>

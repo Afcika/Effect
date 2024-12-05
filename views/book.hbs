@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Books Management & Library</title>
+    <link rel="stylesheet" href="style/books.css">
+</head>
+<body>
+   <header>
+        <h1>Welcome Admin this is Fragrance List</h1>
+    </header>
+
+    <nav>
+  <a href="#" id="show-create-form" onclick="showCreateForm()">Create New Fragrance</a>
+        <a href="/admin">Fragrance List</a>
+        <a href="/home">Home Page</a>
+    </nav>
+<!-- Fragrances Grid for Display -->
+<div id="fragrances-grid" class="fragrances-grid"></div>
+
+<!-- Fragrances Table for Display -->
+<table id="fragrances-table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Title</th>
+            <th>Brand</th>
+              <th>Image</th>
+            <th>Gender</th>
+            <th>Price</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <!-- Table rows will be populated by JavaScript -->
+    </tbody>
+</table>
+
+
+
+        
+
+        
+
+
+
+
+<div id="overlay" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.5); z-index: 999;"></div>
+
+<!-- Fragrance popup form container -->
+<div id="create-fragrance-form-container" class="popup-form-container" style="display:none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: white; border: 1px solid black; padding: 20px; z-index: 1000;">
+    <form id="create-fragrance-form" enctype="multipart/form-data" onsubmit="event.preventDefault(); addNewFragrance();">
+        <label for="create-title">Title:</label>
+        <input type="text" id="create-title" name="title" required="">
+        <br>
+
+        <label for="create-brand">Brand:</label>
+        <input type="text" id="create-brand" name="brand" required="">
+        <br>
+
+        <label for="create-gender">Gender:</label>
+        <select id="create-gender" name="gender" required="">
+            <option value="M">Male</option>
+            <option value="F">Female</option>
+            <option value="U">Unisex</option>
+        </select>
+        <br>
+
+        <label for="create-price">Price:</label>
+        <input type="number" id="create-price" name="price" required="">
+        <br>
+
+        <label for="create-image">Image:</label>
+        <input type="file" id="create-image" name="image" accept="image/*" required>
+        <br>
+
+        <button type="submit">Create Fragrance</button>
+        <button type="button" onclick="hideCreateForm()">Cancel</button>
+        <p id="create-fragrance-message"></p>
+    </form>
+</div>
+
+
+
+
+
+
+<div id="edit-fragrance-form" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: white; border: 1px solid black; padding: 20px; z-index: 1000;">
+    <h2>Edit Fragrance</h2>
+    <form id="fragrance-form">
+        <input type="hidden" id="fragrance-id" name="id"> <!-- Hidden input to hold the fragrance ID -->
+        <div>
+            <label for="fragrance-title">Title:</label>
+            <input type="text" id="fragrance-title" name="title" required>
+        </div>
+        <div>
+            <label for="fragrance-brand">Brand:</label>
+            <input type="text" id="fragrance-brand" name="brand" required>
+        </div>
+        <div>
+            <label for="fragrance-gender">Gender:</label>
+            <select id="fragrance-gender" name="gender" required>
+                <option value="M">Male</option>
+                <option value="F">Female</option>
+                <option value="U">Unisex</option>
+            </select>
+        </div>
+<div>
+    <label for="fragrance-image">Current Image:</label>
+    <img id="fragrance-image-preview" src="" alt="Current Fragrance Image" style="max-width: 100px; max-height: 100px;">
+</div>
+<div>
+    <label for="fragrance-image">Upload New Image:</label>
+    <input type="file" id="fragrance-image" name="image" accept="image/*">
+</div>
+
+
+        <div>
+            <label for="fragrance-price">Price:</label>
+            <input type="number" id="fragrance-price" name="price" step="0.01" required>
+        </div>
+        <button type="button" onclick="updateFragrance()">Update Fragrance</button>
+        <button type="button" onclick="hideEditForm()">Cancel</button>
+    </form>
+</div>
+
+<!-- Optional overlay for better visual effect -->
+    <div id="overlay" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.5); z-index: 999;"></div>
+
+
+
+
+
+
+    </div>
+
+    <script src="script/book.js"></script>
+</body>
+</html>

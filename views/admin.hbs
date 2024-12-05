@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="stylesheet" href="style/admin.css">
+</head>
+<body>
+    <h1>Admin Dashboard</h1>
+    <p>Welcome, Admin!</p>
+    <a href="/books">Fragrance List</a>
+<a href="/admin">Admin</a>
+    <button id="show-create-form">Create New User</button>
+
+    <h2>Users List</h2>
+    <table id="users-table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Role</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- User rows will be added here -->
+        </tbody>
+    </table>
+
+    <div id="create-user-form-container" class="hidden" enctype="application/x-www-form-urlencoded" method="POST" action="/admin/users/create">
+    <h2>Create User</h2>
+    <form id="create-user-form">
+        <label for="create-name">Name:</label>
+        <input type="text" id="create-name" name="name" required>
+        <br>
+        
+        <label for="create-email">Email:</label>
+        <input type="email" id="create-email" name="email" required>
+        <br>
+        
+        <label for="create-password">Password:</label>
+        <input type="password" id="create-password" name="password" required>
+        <br>
+        
+        <label for="create-role">Role:</label>
+        <select id="create-role" name="role_id" required>
+            <option value="2">User</option> <!-- Use role_id value -->
+            <option value="1">Admin</option> <!-- Use role_id value -->
+        </select>
+        <br>
+        
+        <button type="submit">Create User</button>
+        <p id="create-message"></p>
+    </form>
+</div>
+
+
+   <div id="edit-book-form-container" class="hidden">
+    <h2>Edit Book</h2>
+    <form id="edit-book-form" onsubmit="handleEditFormSubmit(event)">
+        <input type="hidden" id="book-id" name="id">
+        <label for="edit-book-name">Name:</label>
+        <input type="text" id="edit-book-name" name="name" required>
+        <br>
+        <label for="edit-book-description">Description:</label>
+        <textarea id="edit-book-description" name="description" required></textarea>
+        <br>
+        <label for="edit-book-status">Status:</label>
+        <select id="edit-book-status" name="status" required>
+            <!-- Options will be populated by JS -->
+        </select>
+        <br>
+        <label for="edit-book-image">Image URL:</label>
+        <input type="text" id="edit-book-image" name="image" required>
+        <br>
+        <label for="edit-book-author">Author:</label>
+        <input type="text" id="edit-book-author" name="author" required>
+        <br>
+        <label for="book-category">Category:</label>
+        <select id="book-category" name="category" required>
+            <!-- Categories will be populated by JS -->
+        </select>
+        <br>
+        <button type="submit">Update Book</button>
+    </form>
+</div>
+<div id="edit-user-form-container" class="hidden">
+    <form id="edit-user-form">
+        <input type="hidden" id="user-id" name="id">
+        
+        <label for="user-name">Name:</label>
+        <input type="text" id="user-name" name="name" required>
+        
+        <label for="user-email">Email:</label>
+        <input type="email" id="user-email" name="email" required>
+        
+        <label for="user-role">Role:</label>
+        <select id="user-role" name="role_id" required>
+            <option value="2">User</option> <!-- Updated to use role_id -->
+            <option value="1">Admin</option> <!-- Updated to use role_id -->
+        </select>
+        
+        <button type="submit">Update User</button>
+    </form>
+    <div id="update-message"></div>
+</div>
+
+
+
+
+    <script src="/script/book.js"></script>
+    <script src="/script/admin.js"></script>
+    
+</body>
+</html>

@@ -1,0 +1,101 @@
+/* General Footer Styling */
+.footer {
+    background-color: #fff;
+    padding: 20px;
+    border-top: 1px solid #e0e0e0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Arial', sans-serif;
+    font-size: 14px;
+    color: #333;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.brand span {
+    font-size: 2rem; /* Emphasized font size */
+    font-weight: 800; /* Bold for prominence */
+    color: transparent; /* For gradient effect */
+    background: linear-gradient(90deg, #dddddd, #c9c9c9, #d4af37); /* Elegant gradient */
+    background-clip: text;
+    -webkit-background-clip: text;
+    text-decoration: none; /* Clean appearance */
+    letter-spacing: 1.5px; /* Elegant spacing */
+    text-transform: uppercase; /* Statement style */
+    font-family: 'Playfair Display', serif; /* Modern, elegant font */
+    transition: color 0.3s ease, transform 0.3s ease; /* Smooth transitions */
+    display: inline-block; /* Allows hover effects */
+}
+
+/* Hover effect */
+.brand span:hover {
+    color: transparent; /* Maintain gradient on hover */
+    background: linear-gradient(90deg, #dddddd, #c9c9c9, #d4af37); /* Same gradient for hover */
+    background-clip: text;
+    -webkit-background-clip: text;
+    transform: scale(1.1); /* Slight zoom for interaction */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Subtle depth */
+}
+
+
+
+/* Social Icons Styling */
+.social-icons {
+    display: flex;
+    gap: 15px;
+}
+
+.social-icons a {
+    font-size: 1.8rem; /* Slightly larger icon size */
+    color: inherit; /* Allow specific platform colors */
+    transition: transform 0.3s ease; /* Smooth hover effects */
+}
+
+/* Original Platform Colors */
+.social-icons a[href*="facebook"] i {
+    color: #1877f2; /* Facebook blue */
+}
+.social-icons a[href*="instagram"] i {
+    color: #e4405f; /* Instagram pink */
+}
+.social-icons a[href*="tiktok"] i {
+    color: #000; /* TikTok black */
+}
+
+/* Hover Effect */
+.social-icons a:hover {
+    transform: scale(1.1); /* Slight enlargement on hover */
+}
+
+/* Copyright */
+.footer-right {
+    color: #555;
+    font-size: 0.9rem;
+    text-align: center;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .social-icons {
+        gap: 10px;
+    }
+
+    .footer-right {
+        margin-top: 10px;
+        font-size: 0.8rem;
+    }
+}

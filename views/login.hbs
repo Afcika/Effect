@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style/login.css">
+    <title>Library</title>
+</head>
+<body>
+    <div class="container">
+        <div class="left">
+            <h5>Sign In</h5>
+            <form action="/login" method="post">
+                <div class="left_input_div">
+                    <input type="email" class="form-control" id="email" name="email" placeholder="E-mail">
+                </div>
+                <div class="left_input_div">
+                    <input type="password" class="form-control" id="password" name="password" placeholder="Password">
+                </div>
+                <button type="submit" class="btn btn-primary">Continue</button>
+            </form>    
+        </div>
+        
+      
+    </div>
+
+
+
+
+    
+
+    <!-- Display the message if it exists -->
+    {{#if message}}
+    <div class="alert alert-danger">
+        <h4>{{message}}</h4>
+    </div>
+    {{/if}}
+
+</body>
+</html>

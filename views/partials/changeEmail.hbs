@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>იმეილის შეცვლა</title>
+    <link rel="stylesheet" href="/style/style.css">
+</head>
+<body>
+    <div class="password_change_div">
+        <div class="password-change-form">
+            <form id="updateEmailForm" method="POST" action="/update-email" class="updatePasswordForm">
+                <label for="newEmail">იმეილის შეცვლა</label>
+                <input type="email" id="newEmail" name="newEmail" required>
+                <button type="submit">შეცვლა</button>
+            </form>
+        </div>
+    </div>
+    <script>
+        // Optional: Handle form submission using JavaScript
+        const form = document.getElementById('updateEmailForm');
+        form.addEventListener('submit', async (event) => {
+            event.preventDefault(); // Prevent default form submission
+
+            const newEmail = document.getElementById('newEmail').value;
+
+            try {
+                const response = await fetch('/update-email', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ newEmail })
+                });
+
+                const result = await response.json();
+                if (result.success) {
+                    alert('Email updated successfully!');
+                } else {
+                    alert(`Error: ${result.message}`);
+                }
+            } catch (error) {
+                console.error('Error updating email:', error);
+                alert('Failed to update email.');
+            }
+        });
+    </script>
+</body>
+</html>

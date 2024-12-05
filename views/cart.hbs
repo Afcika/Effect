@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="style/cart.css">
+    <link rel="stylesheet" href="style/header.css">
+    <link rel="stylesheet" href="style/footer.css">
+</head>
+<body>
+
+{{> header}}
+
+<div class="cart-page">
+    {{#if emptyCart}}
+    <!-- Show this if the cart is empty -->
+    <div class="cart-success">
+        <div class="cart-message">
+            <div class="success-icon"><i class="fa-solid fa-cart-shopping"></i></div>
+            <h1>კალათა ცარიელია.</h1>
+        
+        </div>
+        <a href="/catalog" class="shop-btn">გადადით მაღაზიაში</a>
+    </div>
+    {{else}}
+    <!-- Show this if the cart has items -->
+    <div class="cart-items">
+        <h1>შენი კალათა</h1>
+        <table class="cart-table">
+            <thead>
+                <tr>
+                    <th>პროდუქტი</th>
+                    <th>ფასი</th>
+                    <th>რაოდენობა</th>
+                    <th></th> <!-- Empty column for the delete button -->
+                </tr>
+            </thead>
+            <tbody>
+                {{#each fragrances}}
+                <tr>
+                    <td class="product-details">
+                        <img src="{{this.image}}" alt="{{this.title}}" class="product-image">
+                        <div class="product-info">
+                            <h2>სახელი: {{this.title}}</h2>
+                            <p>ბრენდი: {{this.brand}}</p>
+                        </div>
+                    </td>
+                    <td>{{this.price}} GEL</td>
+                    <td>
+                        <div class="quantity-control">
+                            <button class="quantity-btn" onclick="updateQuantity('{{this.id}}', -1)">-</button>
+                            <input type="number" id="quantity-{{this.id}}" value="{{this.quantity}}" min="1" readonly>
+                            <button class="quantity-btn" onclick="updateQuantity('{{this.id}}', 1)">+</button>
+                        </div>
+                    </td>
+                    <td>
+                        <button class="delete-btn" onclick="removeFromCart('{{this.id}}')">&times;</button>
+                    </td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+        <div class="cart-total">
+            <h3>ჯამური ფასი: {{total_price}} GEL</h3>
+            <button class="purchase-btn">შეძენა</button>
+        </div>
+    </div>
+    {{/if}}
+</div>
+
+{{> footer}}
+
+<script src="/script/cart.js"></script>
+</body>
+</html>

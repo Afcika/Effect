@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style/confemail.css">
+    <title>Library - Confirm Email</title>
+</head>
+<body>
+    <div class="container">
+        <div class="left">
+            <h5>Confirm Your Account</h5>
+            <form id="emailForm" method="POST" action="/confirm-email">
+                <div class="left_input_div">
+                    <input type="email" id="email" name="email" value="{{user.email}}" placeholder="Enter your email" required>
+                </div>
+                <div class="left_input_div">
+                    <input type="text" id="verificationCode" name="verificationCode" placeholder="Enter verification code" required>
+                </div>
+                <div class="div_bottom">
+                     <button class="resend" onclick="resendCode()">Re-Send Code</button>
+                    <button class="submit_button" type="submit">Continiue</button>
+                    <h6>Already have an account? <a href="/login">Sign in</a></h6>
+                </div>      
+            </form>
+        </div>
+    </div>
+    <script src="script/confirm-email.js"></script>
+</body>
+</html>

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="style/header.css">
+    <link rel="stylesheet" href="style/footer.css">
+    <link rel="stylesheet" href="style/catalog.css">
+    <title>Document</title>
+</head>
+<body>
+
+    
+
+    {{> header}}
+    <div id="custom-alert" class="alert-popup">
+  <div class="alert-content">
+    <p>You must be logged in to add to cart</p>
+  </div>
+</div>
+
+
+
+    <div class="logos">
+        <div class="logos-slide">
+            <img src="/images/INF-TOM.png" alt="Image 1">
+            <img src="/images/INF-IN.png" alt="Image 2">
+            <img src="/images/INF-ORTO.png" alt="Image 3">
+            <img src="/images/INF-Xer.png" alt="Image 4">
+            <img src="/images/INF-TUS.png" alt="Image 5">
+            <img src="/images/INF-TOM.png" alt="Image 6">
+            <img src="/images/INF-IN.png" alt="Image 7">
+        </div>
+
+        <div class="logos-slide">
+            <img src="/images/INF-TOM.png" alt="Image 1">
+            <img src="/images/INF-IN.png" alt="Image 2">
+            <img src="/images/INF-ORTO.png" alt="Image 3">
+            <img src="/images/INF-Xer.png" alt="Image 4">
+            <img src="/images/INF-TUS.png" alt="Image 5">
+            <img src="/images/INF-TOM.png" alt="Image 6">
+            <img src="/images/INF-IN.png" alt="Image 7">
+        </div>
+    </div>
+
+
+
+<section class="ssearch">
+  <div class="search-position">
+    <div class="search-bar-container">
+      <i class="fas fa-search search-icon"></i>
+      <input type="text" placeholder="ძიება..." class="search-bar">
+    </div>
+
+    <div class="search-text">
+      <span class="search-text-label">ფასი:</span>
+      <span class="sort-icon" title="Sort Ascending">
+        <i id="sortAscBtn" class="fa-solid fa-arrow-up"></i>
+      </span>
+      <span class="sort-icon" title="Sort Descending">
+        <i id="sortDescBtn" class="fa-solid fa-arrow-down"></i>
+      </span>
+    </div>
+  </div>
+</section>
+
+
+<section class="catalog-flex">
+
+
+    <section class="ct-flex-left">
+        <div class="slider-container">
+
+        <div class="price-box-cont">
+            <label for="price-slider" class="slider-label">ფასი შერჩეული</label>
+     <input type="range" id="price-slider" class="slider" min="0" >
+
+            <div class="price-range">
+                ფასი:
+                <span>0 ₾</span>
+                <span class="price-line"> — </span>
+                <span id="current-price">90 ₾</span>
+            </div>
+            <div class="price-buttons">
+                <button class="filter-button red-bnt"><span>გასუფთავება</span></button>
+                <button class="filter-button green-bnt"><span>გაფილტვრა</span></button>
+            </div>
+        </div>
+
+        <hr>
+
+
+        <div class="cat-">
+
+            <div class="cat-title">
+                <span>კატეგორია</span>
+            </div>
+    
+            <div class="cat-info">
+                <button><span id="maleBtn" >მამაკაცი</span></button>
+                <button><span id="femaleBtn">ქალი</span></button>
+                <button><span id="unisexBtn">უნისექსი</span></button>
+            </div>
+
+        </div>
+<hr>
+        
+<div class="brands-back">
+    <div class="brands-back-title">
+        <span>ბრენდი</span>
+    </div>
+
+    <div class="brands-back-info">
+        <!-- Brands will be dynamically inserted here -->
+    </div>
+
+  
+</div>
+
+
+
+
+        
+    </div>
+
+    </section>
+
+  
+
+    
+
+    <section class="ct-flex-right">
+
+            <div class="index-Fragrance-carousel">
+
+            </div>
+
+         <div class="pagination"></div> 
+    </section>
+
+</section>
+
+
+
+<section class="slider-footer">
+    <div class="slider-footer">
+        <div class="slider-container-footer">
+            <!-- Example items dynamically rendered -->
+        </div>
+    </div>
+</section>
+
+
+{{> footer}}
+<script src="/script/catalog.js"></script>
+
+</body>
+</html>

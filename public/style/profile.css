@@ -1,0 +1,971 @@
+*{
+    margin: 0;
+    padding: 0;  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+
+
+body {
+
+    background-color: #f4f4f4;
+}
+
+
+
+h1 {
+    text-align: center;
+}
+
+.books-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+    
+}
+
+.book-card {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    overflow: hidden;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    border: solid black 1px;
+  
+}
+
+.book-card:hover {
+    transform: scale(1.05);
+}
+
+.book-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.book-info {
+    padding: 15px;
+    text-align: center;
+}
+
+.book-title {
+    font-size: 18px;
+    margin: 10px 0;
+}
+
+.book-author {
+    font-size: 14px;
+    color: #888;
+}
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5); /* Black with opacity */
+    padding-top: 50px;
+}
+
+.modal-content {
+    background-color: white;
+    margin: 5% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 600px;
+    border-radius: 10px;
+    text-align: center;
+}
+.hidden {
+    display: none;
+}
+
+.modal-book-image {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    margin-bottom: 20px;
+}
+
+.modal-book-title {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.modal-book-author, .modal-book-description, .modal-book-status {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.close-button {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: black;
+    cursor: pointer;
+}
+
+.book-status {
+    font-size: 14px;
+    margin: 5px 0;
+    font-weight: bold;
+}
+
+.reserve-button {
+    padding: 10px 15px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.reserve-button:hover {
+    background-color: #45a049;
+}
+
+
+
+
+.logo{
+    width: 20%;
+    height: auto;
+}
+.logo li{
+    list-style-type: none;
+    text-decoration: none;
+}
+.logo_li a{
+    text-decoration: none;
+
+}
+.logo_li a img{
+    width: 200px;
+    height: 70px;
+}
+.title{
+    width: 60%;
+    height: auto;
+    display: flex;
+    justify-content: space-between;
+}
+.title li {
+    list-style-type: none;
+    text-decoration: none;
+}
+.title li a{
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 24px;
+    letter-spacing: 0.02em;
+    text-align: left;
+    color: rgb(76,76,76);
+    gap: 3px;
+    display: flex;
+    align-items: center;
+}
+.title li a img{
+    width: 25px;
+    height: 25px;
+}
+.profile{
+    width: 20%;
+    height: auto;
+}
+.profile li{
+    list-style-type: none;
+    text-decoration: none;
+}
+.profile li a{
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 24px;
+    letter-spacing: 0.02em;
+    text-align: left;
+    color: rgb(76,76,76);
+    gap: 3px;
+    display: flex;
+    align-items: center;
+}
+.profile li a img{
+    width: 25px;
+    height: 25px;
+}
+
+
+/* Burger Button */
+/* Add this to ensure burger button appears at the correct place */
+.burger-btn {
+    display:none;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    position: absolute; /* Ensure it's visible on top */
+    top: 20px; /* Position it at the top */
+    right: 20px; /* Position it at the right */
+    z-index: 10; /* Ensure it stays on top of other elements */
+}
+
+.burger-btn .bar {
+    width: 100%;
+    height: 3px;
+    background-color: rgb(76, 76, 76);
+    border-radius: 10px;
+}
+
+
+/* Sidebar */
+.sidebar {
+    position: fixed;
+    z-index: 2;
+    top: 0;
+    left: -300px; /* Start hidden outside the view */
+    width: 250px;
+    height: 100%;
+    background-color: #fff;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+    transition: left 0.3s ease-in-out;
+    padding: 20px;
+    flex-direction: column;
+    justify-content: flex-start;
+    display: flex;
+}
+
+.sidebar.active {
+    left: 0; /* Move the sidebar into view when active */
+    display: flex;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    margin: 20px 0;
+}
+
+.sidebar ul li a {
+    text-decoration: none;
+    font-size: 18px;
+    color: rgb(76, 76, 76);
+    display: flex;
+    align-items: center;
+}
+
+.sidebar ul li a img {
+    margin-right: 10px;
+    width: 25px;
+    height: 25px;
+}
+
+/* Show Sidebar */
+.sidebar.active {
+    left: 0;
+}
+
+
+
+/* slider */
+.carousel_slider{
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.carousel-container {
+    position: relative;
+    width: 80%;
+    max-width: 800px;
+    overflow: hidden;
+    margin-top: 5%;
+}
+
+.carousel {
+    overflow: hidden;
+    width: 100%;
+}
+
+.carousel-track {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    gap: 20px;
+}
+
+.book-card{
+    min-width: 33%;
+    margin: 0; 
+    background-color: #ffffff;
+    color: rgb(76, 76, 76);
+    text-align: center;
+    padding: 20px;
+    font-size: 24px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+}
+
+
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 15px;
+    cursor: pointer;
+    font-size: 18px;
+    z-index: 1;
+}
+
+.prev {
+    left: 10px;
+}
+
+.next {
+    right: 10px;
+}
+
+.prev:hover, .next:hover {
+    background-color: rgba(0, 0, 0, 0.7);
+}
+/* .carus{
+    width: 30%;
+    height: auto;
+}
+.carus_div{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+}
+.carus_img{
+    width: 30%;
+    height: auto;
+    position: absolute;
+}
+.carus_img img{
+    margin-left: 25px;
+    margin-top: -70px;
+    width: 124px;
+    height: 160px;
+}
+.carus_title{
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    text-align: center;
+    height: 125px;
+    background-color: #926052;
+    color: white;
+} */
+
+
+/* books_page */
+
+.books-section{
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.books-container{
+    width: 90%;
+    height: auto;
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    gap: 30px;
+    margin-top: 7%;
+}
+.book-item{
+    width: 100%;
+    height: auto;
+    gap: 10px;
+    cursor: pointer;
+}
+.book-item img{
+    width: 100%;
+    height: 280px;
+    object-fit: cover; 
+}
+.book-item h4{
+    font-family: "NotoSansGeorgianRegular";
+    letter-spacing: .17em;
+    font-size: 14px;
+    color: #6d6e71;
+    font-weight: 700;
+ 
+}
+.book-item h5{
+    font-family: "NotoSansGeorgianRegular";
+    letter-spacing: 0.5px;
+    font-size: 16px;
+    color: black;
+    font-weight: 700;
+
+}
+
+
+/* search_page */
+
+.search_page{
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+}
+.search-section{
+    width: 90%;
+    height: auto;
+
+}
+.search-bar{
+    width: 40%;
+    height: auto;
+}
+.search-bar input{
+    width: 100%;
+    height: 40px;
+    padding-left: 15px;
+    margin-left: 65%;
+    margin-top: 5%;
+
+}
+
+/* book page */
+
+
+.book{
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+}
+.book_div{
+    width:70%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    margin-top: 7%;
+    gap: 20px;
+}
+.book_div_left{
+    width: 30%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.book_div_left img{
+    width: 100%;
+    height: auto;
+}
+.book_div_left button{
+    width: 100%;
+    cursor: pointer;
+    height: 50px;
+    background-color: #5985E1;
+    font-size: 17px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    border: none;
+}
+.book_div_left button:hover{
+    background-color: white;
+    color: #5985E1;
+}
+.book_div_right{
+    width: 70%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+.book_div_right span{
+    letter-spacing: .15em;
+    font-family: "NotoSansGeorgianRegular";
+    font-size: 14px;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: #999;
+}
+.book_div_right button{
+    width: 200px;
+    cursor: pointer;
+    height: 50px;
+    background-color: #cc2d2d;
+    font-size: 17px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    border: none;
+}
+.book_div_right h2{
+    font-size: 35px;
+    line-height: 1.142em;
+    font-family: "NotoSansGeorgianRegular";
+    font-weight: 500;
+    letter-spacing: .01em;
+    color: rgb(76, 76, 76);;
+}
+.book_div_right h5{
+    font-size: 16px;
+    line-height: 1.142em;
+    font-family: "NotoSansGeorgianRegular";
+    font-weight: 500;
+    letter-spacing: .01em;
+    color: black;
+}
+.book_div_right p{
+    font-weight: 400;
+    line-height: 28px;
+    color: #555;
+    font-size: 17px;
+    width: 90%;
+}
+
+
+
+/* profile page */
+
+
+.profile_main{
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+}
+.profile_div{
+    width: 90%;
+    height: auto;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 5%;
+}
+.profile_div_left{
+    width: 30%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    border-right: solid 1px rgb(76, 76, 76);
+    gap: 15px;
+}
+
+
+.profile_div_right h5{
+    font-size: 17px;
+}
+.profile_div_right_main{
+    width: 90%;
+    height: auto;
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-gap: 50px;
+    margin-top: 20px;
+}
+.div_info{
+    width: 100%;
+    height: auto;
+}
+.div_info img {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    margin-top: -30px;
+    margin-left: 10px;
+}
+.div_info span{
+    position: absolute;
+    width: auto;
+    height: 20px;
+    background-color: #f4f4f4;
+    margin-top: -12px;
+    margin-left: 20px;
+    color: rgb(76, 76, 76);
+    font-size: 15px;
+    font-family: "NotoSansGeorgianRegular";
+}
+.div_info input{
+    width: 94%;
+    height: 40px;
+    color: rgb(76, 76, 76);
+    background-color: #f4f4f4;
+    border: solid rgb(76, 76, 76) 1px;
+    padding-left: 30px;
+}
+.div_info input:focus{
+    outline: 1px solid #f4f4f4;
+}
+.div_bar{
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    height: auto;
+    padding: 2px;
+    gap: 6px;
+}
+.div_bar button {
+    font-size: 16px;
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    align-items: center;
+    color: rgb(76, 76, 76);
+    font-family: "NotoSansGeorgianRegular";
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    height: 55px;
+    border-radius: 15px;
+    transition: background-color 0.3s ease;
+    background-color: #f4f4f4;
+    padding-left: 5px;
+    gap: 5px;
+}
+.div_bar button.active {
+    display: flex;
+    flex-direction: row;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    height: 55px;
+    border-radius: 15px;
+    background-color: hsl(0, 0%, 86%);
+    padding-left: 5px;
+    gap: 5px;
+}
+
+
+
+.div_bar button img{
+    width: 25px;
+    height: 25px;
+    margin-left: 7px;
+}
+
+
+
+.profile_div_right{
+    width: 70%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.password_change_div{
+    width: 90%;
+    height: auto;
+    grid-gap: 20px;
+    margin-top: 20px;
+}
+.password-change-form{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.updatePasswordForm{
+    width: 90%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+.updatePasswordForm button{
+    width: 53%;
+    height: 40px;
+    text-align: center;
+    background-color: #5985E1;
+    color: white;
+    cursor: pointer;
+    border: solid #5985E1 1px;
+    font-weight: 700;
+}
+.updatePasswordForm button:hover{
+    background-color: white;
+    color: #5985E1;
+}
+.updatePasswordForm input{
+    padding-left: 20px;
+    width: 50%;
+    height: 40px;
+    background-color:#f4f4f4 ;
+    font-weight: 300;
+    
+}
+.updatePasswordForm input:focus{
+    outline: 1px solid #f4f4f4;
+}
+
+/* Show burger button on smaller screens */
+
+@media screen and (max-width: 1400px) {
+    .title li a {
+        text-decoration: none;
+        font-size: 13px;
+       
+    }
+    .profile li a {
+        text-decoration: none;
+        font-size: 13px;
+    }
+}
+@media screen and (max-width: 1300px) {
+    .title li a img {
+        width: 20px;
+        height: 20px;
+    }
+    .profile li a img {
+        width: 20px;
+        height: 20px;
+    }
+    .logo_li a img {
+        width: 180px;
+        height: 70px;
+    }
+}
+@media screen and (max-width: 1200px) {
+    .title li a img {
+        width: 20px;
+        height: 20px;
+    }
+    .profile {
+        width: 15%;
+        height: auto;
+    }
+    .title {
+        width: 70%;
+    }
+    .logo {
+        width: 15%;
+        height: auto;
+    }
+    .books-container {
+        grid-template-columns: auto auto auto;
+    }
+    .book_div_right h2 {
+        font-size: 32px;
+    }
+    .book_div_right span {
+        font-size: 12px;
+    }
+    .book_div_right p {
+        font-size: 15px;
+    }
+    .book_div_right button {
+        width: 180px;
+        height: 40px;
+        font-size: 15px;
+    }
+    .book_div_left button {
+        height: 40px;
+        font-size: 17px;
+    }
+}
+@media screen and (max-width: 1000px) {
+    .profile li a {
+        text-decoration: none;
+        font-size: 11px;
+    }
+    .title li a {
+        text-decoration: none;
+        font-size: 11px;
+    }
+    .logo_li a img {
+        width: 160px;
+        height: 70px;
+    }
+    .book_div_right h2 {
+        font-size: 28px;
+    }
+    .book_div_right p {
+        font-size: 14px;
+    }
+    .book_div_left button {
+        height: 35px;
+        font-size: 16px;
+    }
+    .book_div_right button {
+        width: 170px;
+        height: 35px;
+        font-size: 14px;
+    }
+}
+@media screen and (max-width: 900px) {
+    .burger-btn {
+        display: flex; /* Make burger button visible on small screens */
+    }
+
+    /* Hide the title and profile nav items when burger is visible */
+    .title,
+    .profile {
+        display: none;
+    }
+    .books-container {
+        grid-template-columns: auto auto;
+    }
+    .book-item img {
+        height: 240px;
+    }
+    .book-item h5 {
+        font-size: 15px;
+    }
+    .book-item h4 {
+        font-size: 13px;
+    }
+    .profile_div{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        border: none;
+    }
+    .profile_div_left{
+        width: 90%;
+        border: none;
+    }
+    .profile_div_right{
+        width: 90%;
+        margin-top: 5%;
+    }
+    .book-card{
+        min-width: 42%;
+    }
+    .img_div img{
+        height: 155px;
+    }
+    .carousel {
+        height: 300px;
+    }
+    .book-info {
+        padding: 0;
+        text-align: center;
+    }
+    .book-title {
+        font-size: 16px;
+        margin: 10px 0;
+    }
+    .book-status {
+        font-size: 13px;
+        margin: 5px 0;
+        font-weight: bold;
+    }
+    .book-author {
+        font-size: 13px;
+        color: #888;
+    }
+    .book_div {
+        width: 90%;
+    }
+    .book_div_right p {
+        line-height: 22px;
+        font-size: 14px;
+    }
+    .book_div_right button {
+        width: 150px;
+        height: 35px;
+        font-size: 13px;
+    }
+    .book_div_right h5 {
+        font-size: 14px;
+    }
+}
+@media screen and (max-width: 750px) {
+    .book_div_right h2 {
+        font-size: 26px;
+    }
+    .book_div_right p {
+        font-size: 13px;
+    }
+    .book_div_right h5 {
+        font-size: 14px;
+    }
+    .book_div_right button {
+        width: 150px;
+        height: 35px;
+        font-size: 13px;
+    }
+    .book_div_right span {
+        font-size: 11px;
+    }
+    .book_div {
+        width: 95%;
+    }
+}
+@media screen and (max-width: 600px){
+    .book_div_right h2 {
+        font-size: 23px;
+    }
+    .book_div_right p {
+        font-size: 12px;
+    }
+    .book_div_left button {
+        height: 35px;
+        font-size: 14px;
+    }
+    .book_div_right button {
+        width: 130px;
+        height: 30px;
+        font-size: 13px;
+    }
+    .book_div_right span {
+        font-size: 10px;
+    }
+    .book_div_right h5 {
+        font-size: 12px;
+    }
+}
+@media screen and (max-width: 500px) {
+    .book_div_right p {
+        font-weight: 400;
+        line-height: 15px;
+        color: #555;
+        font-size: 12px;
+        width: 90%;
+    }
+    .book_div_right h2 {
+        font-size: 22px;
+    }
+
+    .books-container {
+        grid-template-columns: auto;
+    }
+    .book_div_right span {
+        font-size: 9px;
+    }
+    .book_div_right {
+        gap: 10px;
+    }
+    .book_div_left button {
+        height: 30px;
+        font-size: 13px;
+    }
+  
+}
+
